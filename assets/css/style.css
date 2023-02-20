@@ -1,13 +1,16 @@
 /* Definizione variabili */
 :root{
     --header_height : 800px;
+    --section_height : 700px;
     --block_width : 80%;
     --logo_width : 20%;
-    --top_bar_height : 100px;
+    --top_bar_height : 12%;
     --logo_box_width : 20%;
     --menu_box_height : 100%;
     --menu_item_color : white;
     --header_text_color : white;
+    --title_block_width : 60%;
+    --title_block_height : 70%;
 }
 
 header{
@@ -27,10 +30,11 @@ header{
     height: var(--top_bar_height);
     background-color: green;
     margin: auto;
+    margin-bottom: 3%;
 }
 
 .top_bar > *{
-    height: var(--top_bar_height);
+    height: 100%;
 }
 
 .top_side_box{
@@ -66,3 +70,20 @@ nav{
 .menu_item{
     color: var(--menu_item_color);
 }
+
+#title_block{
+    width: var(--title_block_width);
+    height: var(--title_block_height);
+    background-color: blue;
+    margin: auto;
+}
+
+section{
+    height: var(--section_height);
+}
+
+section:nth-child(even){
+    background-color: lightgray;
+}
+
+.section_box{}

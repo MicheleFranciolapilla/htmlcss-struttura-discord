@@ -5,6 +5,9 @@
     --logo_width : 20%;
     --top_bar_height : 100px;
     --logo_box_width : 20%;
+    --menu_box_height : 100%;
+    --menu_item_color : white;
+    --header_text_color : white;
 }
 
 header{
@@ -12,27 +15,35 @@ header{
     /* Inserisco una immagine di background a piacere per tutta la parte header */
     background-image: url(https://img.freepik.com/premium-photo/vibrant-multi-color-gradient-background-simple-color-spaces-as-contemporary-background-graphic-backdrop_1962-2290.jpg);
     background-size : cover;
+    color: var(--header_text_color);
 }
 
 .flexbox{
     display: flex;
+}
+
+.top_bar{
     width: var(--block_width);
     height: var(--top_bar_height);
     background-color: green;
     margin: auto;
 }
 
-.top_side_size{
+.top_bar > *{
+    height: var(--top_bar_height);
+}
+
+.top_side_box{
     border: 1px dashed black;
     order: 0;
     flex-basis: var(--logo_box_width);
 }
 
-.top_side_size:first-child{
+.top_side_box:first-child{
     text-align: left;
 }
 
-.top_side_size:last-child{
+.top_side_box:last-child{
     text-align: right;
     order: 2;
 }
@@ -43,3 +54,15 @@ nav{
     flex-basis: calc(100% - (2 * var(--logo_box_width))); 
 }
 
+.menu{
+    padding: 0;
+    margin: auto;
+    height: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.3em;
+}
+
+.menu_item{
+    color: var(--menu_item_color);
+}

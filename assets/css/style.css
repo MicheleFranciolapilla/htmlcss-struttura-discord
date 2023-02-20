@@ -1,0 +1,12 @@
+/* Definizione variabili */
+:root{
+    --header_height : 800px;
+    --section_width : 80%;
+}
+
+header{
+    height: var(--header_height);
+    /* Inserisco una immagine di background a piacere per tutta la parte header */
+    background-image: url(https://img.freepik.com/premium-photo/vibrant-multi-color-gradient-background-simple-color-spaces-as-contemporary-background-graphic-backdrop_1962-2290.jpg);
+    background-size: cover;
+}

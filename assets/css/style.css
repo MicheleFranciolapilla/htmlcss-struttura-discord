@@ -1,12 +1,45 @@
 /* Definizione variabili */
 :root{
     --header_height : 800px;
-    --section_width : 80%;
+    --block_width : 80%;
+    --logo_width : 20%;
+    --top_bar_height : 100px;
+    --logo_box_width : 20%;
 }
 
 header{
     height: var(--header_height);
     /* Inserisco una immagine di background a piacere per tutta la parte header */
     background-image: url(https://img.freepik.com/premium-photo/vibrant-multi-color-gradient-background-simple-color-spaces-as-contemporary-background-graphic-backdrop_1962-2290.jpg);
-    background-size: cover;
+    background-size : cover;
 }
+
+.flexbox{
+    display: flex;
+    width: var(--block_width);
+    height: var(--top_bar_height);
+    background-color: green;
+    margin: auto;
+}
+
+.top_side_size{
+    border: 1px dashed black;
+    order: 0;
+    flex-basis: var(--logo_box_width);
+}
+
+.top_side_size:first-child{
+    text-align: left;
+}
+
+.top_side_size:last-child{
+    text-align: right;
+    order: 2;
+}
+
+nav{
+    border: 1px dashed black;
+    order: 1;
+    flex-basis: calc(100% - (2 * var(--logo_box_width))); 
+}
+

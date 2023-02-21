@@ -1,10 +1,17 @@
+/* Reset box */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 /* Definizione variabili */
 :root{
     /* Altezza dei blocchi (header, section, blocco intra_footer) */
     --block_height : 800px;
     /* Larghezza dei blocchi centrati (barra superiore, blocchi intra-section, blocco intra-footer */
     --block_width : 80%;
-    /* Larghezza dei blocchi con logo e login */
+    /* Larghezza blocchi con logo e login (header) e con logo e subscribe (footer)*/
     --logo_box_width : 20%;
     /* Altezza della barra superiore contenente logo, menu e login */
     --top_bar_height : 100px;
@@ -43,22 +50,22 @@ header{
     margin: auto;
 }
 
-/* Contenitore del logo/login */
-.top_side_box{
+/* Contenitore del logo/login (header) e del logo/subscribe (footer)*/
+.top-bottom_side_box{
     order: 0;
     flex-basis: var(--logo_box_width);
     align-items: center;
     padding: 0 10px;
 }
 
-/* Contenitore logo */
-.top_side_box:first-child{
+/* Contenitore logo (header e footer)*/
+.top-bottom_side_box:first-child{
     justify-content: flex-start;
     border-right: 2px dashed black;
 }
 
-/* Contenitore login */
-.top_side_box:last-child{
+/* Contenitore login (header) e subscribe (footer)*/
+.top-bottom_side_box:last-child{
     justify-content: flex-end;
     border-left: 2px dashed black;
     order: 2;
@@ -100,7 +107,7 @@ section:nth-child(even){
     background-color: lightgray;
 }
 
-/* Blocchi intra\section */
+/* Blocchi intra-section */
 .section_box{
     flex-basis: var(--block_width);
     height: calc(100% - 2 * var(--section_box_margin));
@@ -145,25 +152,47 @@ section:nth-child(even) .section_box .color2{
 
 footer{
     background-color: black;
+    flex-wrap: wrap;
 }
 
+/* Blocco interno al footer contenente lingua e link ai social a sinistra e menu a destra*/
 .intra_footer{
-    width: var(--block_width);
+    flex-basis: var(--block_width);
     height: var(--block_height);
-    border: 3px dashed black;
-    background-color: yellow;
+    border: 3px dashed blue;
     margin: 10px auto;
 }
 
+/* Blocco contenente lingua e link ai social */
 .left_col{
     flex-basis: var(--left_col_width);
     height: 100%;
     background-color: red;
 }
 
+/* Blocchi (4) contenenti i menu del footer */
 .footer_menu{
     flex-basis: calc((100% - var(--left_col_width)) / 4);
     height: 100%;
     background-color: plum;
-    border-left: 3px dashed black;
+    border-left: 3px dashed blue;
+}
+
+/* Riga orizzontale */
+#row{
+    flex-basis: var(--block_width);
+    height: 3px;
+    background-color: red;
+    margin: 10px auto;
+}
+
+/* Blocco inferiore, centrato, contenente logo e subscribe */
+.footer_bottom{
+    flex-direction: row;
+    flex-basis: var(--block_width);
+    height: 100px;
+    background-color: greenyellow;
+    margin: 20px auto;
+    justify-content: space-between;
+    font-size: 1.3em;
 }

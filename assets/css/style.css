@@ -12,6 +12,11 @@
     --title_block_width : 60%;
     /* Altezza del blocco del titolo, interno allo header */
     --title_block_height : 70%;
+    /* Fattore di incremento altezza dell'ultima sezione */
+    --last_section_factor : 1.5;
+    /* Margine verticale dei blocchi intra-setion */
+    --section_box_margin : 10%; /* Valore percentuale */
+    --section_box_margin_val : 0.1; /* Valore numerico */
 }
 
 header{
@@ -26,6 +31,7 @@ header{
     display: flex;
 }
 
+/* Barra superiore centrata, contenente logo, menu e login */
 .top_bar{
     width: var(--block_width);
     height: var(--top_bar_height);
@@ -35,6 +41,7 @@ header{
     margin: auto;
 }
 
+/* Contenitore del logo/login */
 .top_side_box{
     order: 0;
     flex-basis: var(--logo_box_width);
@@ -42,19 +49,21 @@ header{
     padding: 0 10px;
 }
 
+/* Contenitore logo */
 .top_side_box:first-child{
     justify-content: flex-start;
     border-right: 2px dashed black;
 }
 
+/* Contenitore login */
 .top_side_box:last-child{
     justify-content: flex-end;
     border-left: 2px dashed black;
     order: 2;
 }
 
+/* Contenitore del menu (unordered list) */
 nav{
-    /* height: 100%; */
     order: 1;
     flex-basis: calc(100% - (2 * var(--logo_box_width))); 
 }
@@ -69,6 +78,7 @@ nav{
     color: white;
 }
 
+/* Blocco contenitore di titolo, paragrafo e pulsanti, centrato nello header */
 #title_block{
     width: var(--title_block_width);
     height: var(--title_block_height);
@@ -83,13 +93,15 @@ section{
     align-items: center;
 }
 
+/* Alternanza dei colori di sfondo delle sezioni */
 section:nth-child(even){
     background-color: lightgray;
 }
 
+/* Blocchi intra\section */
 .section_box{
     flex-basis: var(--block_width);
-    height: 80%;
+    height: calc(100% - 2 * var(--section_box_margin));
     border: 3px dashed black;
 }
 
@@ -103,6 +115,8 @@ section:nth-child(even){
     background-color: blueviolet;
 }
 
+/* Alternanza dei sottoblocchi colorati dentro i blocchi intra-section */
+/***********************************************************************/
 section:nth-child(odd) .section_box .color2{
     order: -1;
     border-right: 3px dashed black;
@@ -110,4 +124,19 @@ section:nth-child(odd) .section_box .color2{
 
 section:nth-child(even) .section_box .color2{
     border-left: 3px dashed black;
+}
+/***********************************************************************/
+
+/* Ultima sezione (prima del footer) */
+.last_section{
+    height: calc(var(--last_section_factor) * var(--block_height));
+}
+
+/* Blocco contenuto nell'ultima sezione */
+.last_section_item{
+    background-color: green;
+    flex-basis: var(--block_width);
+    /* La seguente formula consente di mantenere il margine verticale uguale a quello delle precedenti sezioni */
+    height: calc(100% - 2 * var(--section_box_margin_val) * var(--block_height));
+    border: 3px dashed black;
 }

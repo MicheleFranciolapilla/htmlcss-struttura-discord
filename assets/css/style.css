@@ -1,24 +1,25 @@
 /* Definizione variabili */
 :root{
-    --header_height : 800px;
-    --section_height : 700px;
+    /* Altezza dei blocchi (header, section, footer) */
+    --block_height : 800px;
+    /* Larghezza dei blocchi centrati (barra superiore, blocchi intra-section) */
     --block_width : 80%;
-    --logo_width : 20%;
-    --top_bar_height : 12%;
+    /* Larghezza dei blocchi con logo e login */
     --logo_box_width : 20%;
-    --menu_box_height : 100%;
-    --menu_item_color : white;
-    --header_text_color : white;
+    /* Altezza della barra superiore contenente logo, menu e login */
+    --top_bar_height : 100px;
+    /* Larghezza del blocco del titolo, interno allo header */
     --title_block_width : 60%;
+    /* Altezza del blocco del titolo, interno allo header */
     --title_block_height : 70%;
 }
 
 header{
-    height: var(--header_height);
+    height: var(--block_height);
     /* Inserisco una immagine di background a piacere per tutta la parte header */
     background-image: url(https://img.freepik.com/premium-photo/vibrant-multi-color-gradient-background-simple-color-spaces-as-contemporary-background-graphic-backdrop_1962-2290.jpg);
     background-size : cover;
-    color: var(--header_text_color);
+    color: white;
 }
 
 .flexbox{
@@ -28,47 +29,44 @@ header{
 .top_bar{
     width: var(--block_width);
     height: var(--top_bar_height);
+    border: 2px dashed black;
     background-color: green;
+    font-size: 1.3em;
     margin: auto;
-    margin-bottom: 3%;
-}
-
-.top_bar > *{
-    height: 100%;
 }
 
 .top_side_box{
-    border: 1px dashed black;
     order: 0;
     flex-basis: var(--logo_box_width);
+    align-items: center;
+    padding: 0 10px;
 }
 
 .top_side_box:first-child{
-    text-align: left;
+    justify-content: flex-start;
+    border-right: 2px dashed black;
 }
 
 .top_side_box:last-child{
-    text-align: right;
+    justify-content: flex-end;
+    border-left: 2px dashed black;
     order: 2;
 }
 
 nav{
-    border: 1px dashed black;
+    /* height: 100%; */
     order: 1;
     flex-basis: calc(100% - (2 * var(--logo_box_width))); 
 }
 
 .menu{
-    padding: 0;
-    margin: auto;
     height: 100%;
     justify-content: space-evenly;
     align-items: center;
-    font-size: 1.3em;
 }
 
 .menu_item{
-    color: var(--menu_item_color);
+    color: white;
 }
 
 #title_block{
@@ -76,14 +74,40 @@ nav{
     height: var(--title_block_height);
     background-color: blue;
     margin: auto;
+    margin-top: 70px;
 }
 
 section{
-    height: var(--section_height);
+    height: var(--block_height);
+    justify-content: center;
+    align-items: center;
 }
 
 section:nth-child(even){
     background-color: lightgray;
 }
 
-.section_box{}
+.section_box{
+    flex-basis: var(--block_width);
+    height: 80%;
+    border: 3px dashed black;
+}
+
+.color1{
+    flex-basis: 40%;
+    background-color: gray;
+}
+
+.color2{
+    flex-basis: 60%;
+    background-color: blueviolet;
+}
+
+section:nth-child(odd) .section_box .color2{
+    order: -1;
+    border-right: 3px dashed black;
+}
+
+section:nth-child(even) .section_box .color2{
+    border-left: 3px dashed black;
+}

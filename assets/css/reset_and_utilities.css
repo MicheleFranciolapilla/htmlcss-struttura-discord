@@ -15,7 +15,7 @@
 /********************************/
 
 /* Reset degli attributi box */
-.reset_box{
+.reset_box *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;

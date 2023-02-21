@@ -1,8 +1,8 @@
 /* Definizione variabili */
 :root{
-    /* Altezza dei blocchi (header, section, footer) */
+    /* Altezza dei blocchi (header, section, blocco intra_footer) */
     --block_height : 800px;
-    /* Larghezza dei blocchi centrati (barra superiore, blocchi intra-section) */
+    /* Larghezza dei blocchi centrati (barra superiore, blocchi intra-section, blocco intra-footer */
     --block_width : 80%;
     /* Larghezza dei blocchi con logo e login */
     --logo_box_width : 20%;
@@ -17,6 +17,8 @@
     /* Margine verticale dei blocchi intra-setion */
     --section_box_margin : 10%; /* Valore percentuale */
     --section_box_margin_val : 0.1; /* Valore numerico */
+    /* Larghezza della colonna sinistra del footer */
+    --left_col_width : 30%;
 }
 
 header{
@@ -139,4 +141,29 @@ section:nth-child(even) .section_box .color2{
     /* La seguente formula consente di mantenere il margine verticale uguale a quello delle precedenti sezioni */
     height: calc(100% - 2 * var(--section_box_margin_val) * var(--block_height));
     border: 3px dashed black;
+}
+
+footer{
+    background-color: black;
+}
+
+.intra_footer{
+    width: var(--block_width);
+    height: var(--block_height);
+    border: 3px dashed black;
+    background-color: yellow;
+    margin: 10px auto;
+}
+
+.left_col{
+    flex-basis: var(--left_col_width);
+    height: 100%;
+    background-color: red;
+}
+
+.footer_menu{
+    flex-basis: calc((100% - var(--left_col_width)) / 4);
+    height: 100%;
+    background-color: plum;
+    border-left: 3px dashed black;
 }
